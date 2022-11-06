@@ -11,4 +11,6 @@ export default interface ImageControllerInterface {
    deleteImage(req: Request, res: Response): void;
 
    updateImage(req: Request, res: Response): void;
+
+   findImagesPresentInATuit(req: Request, res: Response): void;
 }

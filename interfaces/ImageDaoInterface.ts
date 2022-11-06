@@ -12,4 +12,6 @@ export default interface ImageDaoInterface {
    deleteImageById(imageId: string): any;
 
    updateImage(imageId: string): any;
+
+   findImagesPresentInATuit(tid: string): any;
 }

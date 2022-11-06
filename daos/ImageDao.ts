@@ -1,7 +1,7 @@
 
 import Image from '../models/Image';
-import ImageDaoI from '../interfaces/daointerfaces/ImageDaoInterface';
-import ImageModel from '../mongoose/models/ImageModel';
+import ImageDaoI from '../interfaces/ImageDaoInterface';
+import ImageModel from '../mongoose/ImageModel';
 
 
 export default class ImageDao implements ImageDaoI {
@@ -17,8 +17,12 @@ export default class ImageDao implements ImageDaoI {
     private constructor() {}
 
      async findImageById(imageId: string): Promise<Image> {
-           return await ImageModel.findById(imageId);
+           return await ImageModel
+           .find({_id:imageId})
+           .populate("uploadedBy")
+           .exec();
        }
+
 
      async uploadImage(image: Image): Promise<Image> {
             return await ImageModel.save(image);
@@ -31,6 +35,13 @@ export default class ImageDao implements ImageDaoI {
      async updateImage(imageId: string,image: Image): Promise<Image> {
                  return await  ImageModel.findOneAndUpdate({ _id: imageId },image);
              }
+     async findImagesPresentInATuit(tid: string): Promise<any> { //modify to get array of tuit
+       //  return await LikeModel.find({likedBy:uid})
+              return  await LikeModel
+                 .find({presentInWhichTuit: tid})
+                 .populate("likedTuit")
+                 .exec();
+     }
 
 
   }

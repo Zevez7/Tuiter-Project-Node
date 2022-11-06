@@ -1,6 +1,6 @@
 import {Request, Response, Express} from "express";
 import ImageDao from "../daos/ImageDao";
-import ImageControllerI from "../interfaces/controllerinterface/ImageControllerInterface";
+import ImageControllerI from "../interfaces/ImageControllerInterface";
 
 export default class ImageController implements ImageControllerI {
 
@@ -15,6 +15,7 @@ export default class ImageController implements ImageControllerI {
             app.post("/image", ImageController.imageController.uploadImage);
             app.delete("/image/:imageId", ImageController.imageController.deleteImage);
             app.get("/image/:imageId", ImageController.imageController.findImageById);
+            app.get("/user/:tid/images", ImageController.imageController.findImagesPresentInATuit);
             app.put("/image/:imageId", ImageController.imageController.updateImage);
         }
         return BookmarkController.bookmarkController;
@@ -34,6 +35,9 @@ export default class ImageController implements ImageControllerI {
 
            updateImage = (req: Request, res: Response)=> ImageController.imageController.updateImage(req.params.imageId,req.body )
            .then(bookmarks => res.json(bookmarks));
+
+           findImagesPresentInATuit = (req: Request, res: Response)=> ImageController.imageController.findImagesPresentInATuit(req.params.tid )
+                      .then(images => res.json(images));
 
 }
 
