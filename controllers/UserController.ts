@@ -9,7 +9,7 @@ export default class UserController implements UserControllerI {
     private static userDao: UserDao = UserDao.getInstance();
     private static userController: UserController | null = null;
 
-      /**
+     /**
      * Creates singleton controller instance
      * @param {Express} app Express instance to declare the RESTful Web service
      * API
