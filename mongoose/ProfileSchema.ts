@@ -25,8 +25,8 @@ const ProfileSchema = new mongoose.Schema(
     instagram: { String },
     company: { String },
     interests: [{ type: String }],
-    friends: [{ type: Schema.Types.ObjectId, ref: "UserModel" }],
+    friends: [{ type: String }],
   },
-  { collection: "profile" }
+  { collection: "profiles" }
 );
 export default ProfileSchema;

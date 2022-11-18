@@ -1,8 +1,8 @@
 /**
  * @file Implements mongoose schema for follow
  */
-import mongoose, {Schema} from "mongoose";
-import Follow from '../models/Follow';
+import mongoose, { Schema } from "mongoose";
+import Follow from "../models/Follow";
 
 /**
  * @typedef FollowSchema represents the follow relationship betweent the user
@@ -10,9 +10,12 @@ import Follow from '../models/Follow';
  * @property {string} userFollowed represents the person who got followed
  * @property {string} userFollowing represents the person who was following
  */
-const FollowSchema = new mongoose.Schema<Follow>({
-    followedOn: {type: Date, default: Date.now},
-    userFollowed: {type: Schema.Types.ObjectId, ref: "UserModel"},
-    userFollowing: {type: Schema.Types.ObjectId, ref: "UserModel"}
-}, {collection: "follwers"});
-export default FollowSchema; 
+const FollowSchema = new mongoose.Schema<Follow>(
+  {
+    followedOn: { type: Date, default: Date.now },
+    userFollowed: { type: Schema.Types.ObjectId, ref: "UserModel" },
+    userFollowing: { type: Schema.Types.ObjectId, ref: "UserModel" },
+  },
+  { collection: "followers" }
+);
+export default FollowSchema;
