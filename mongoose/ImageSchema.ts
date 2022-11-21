@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, {Schema} from "mongoose";
+import Image from "../models/Image";
 
-const ImageSchema = new mongoose.Schema({
+const ImageSchema = new mongoose.Schema<Image>({
    fileName: {type: String},
    fileExtension: {type: String},
    base64OfImage: {type: String, required: true},

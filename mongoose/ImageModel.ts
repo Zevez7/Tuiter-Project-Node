@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import ImageSchema from "../schemas/ImageSchema";
+import ImageSchema from "./ImageSchema";
 
-const imageModel = mongoose.model('ImageModel', ImageModel);
-export default imageModel;
+const imageSchema = mongoose.model('ImageModel', ImageSchema);
+export default imageSchema;

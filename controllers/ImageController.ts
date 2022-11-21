@@ -18,27 +18,25 @@ export default class ImageController implements ImageControllerI {
             app.get("/user/:tid/images", ImageController.imageController.findImagesPresentInATuit);
             app.put("/image/:imageId", ImageController.imageController.updateImage);
         }
-        return BookmarkController.bookmarkController;
+        return ImageController.imageController;
     }
 
     private constructor() {}
 
 
-           findImageById = (req: Request, res: Response) => ImageController.imageController.findImageById(req.params.imageId)
+           findImageById = (req: Request, res: Response) => ImageController.imageDao.findImageById(req.params.imageId)
            .then(bookmark => res.json(bookmark));
 
-           uploadImage = (req: Request, res: Response) => ImageController.imageController.uploadImage(req.body)
+           uploadImage = (req: Request, res: Response) => ImageController.imageDao.uploadImage(req.body)
            .then(status => res.json(status));
 
-           deleteImage = (req: Request, res: Response) => ImageController.imageController.deleteImage(req.params.imageId)
+           deleteImage = (req: Request, res: Response) => ImageController.imageDao.deleteImageById(req.params.imageId)
+           .then(status => res.json(status));
+
+           updateImage = (req: Request, res: Response)=> ImageController.imageDao.updateImage(req.params.imageId,req.body )
            .then(bookmarks => res.json(bookmarks));
 
-           updateImage = (req: Request, res: Response)=> ImageController.imageController.updateImage(req.params.imageId,req.body )
-           .then(bookmarks => res.json(bookmarks));
-
-           findImagesPresentInATuit = (req: Request, res: Response)=> ImageController.imageController.findImagesPresentInATuit(req.params.tid )
+           findImagesPresentInATuit = (req: Request, res: Response)=> ImageController.imageDao.findImagesPresentInATuit(req.params.tid )
                       .then(images => res.json(images));
 
 }
-
-*/
