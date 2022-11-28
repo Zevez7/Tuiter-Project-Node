@@ -10,15 +10,15 @@ import MessageController from "./controllers/MessageController";
 import LikeController from "./controllers/LikeController";
 import ProfileController from "./controllers/ProfileController";
 
-// const cors = require("cors");
+const cors = require("cors");
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
-// const address = `mongodb+srv://datnguyen:datnguyentuiter@cluster0.6eip3ug.mongodb.net/?retryWrites=true&w=majority`;
+const address = `mongodb+srv://datnguyen:datnguyentuiter@cluster0.6eip3ug.mongodb.net/project?retryWrites=true&w=majority`;
 
-const address = "mongodb://127.0.0.1:27017/node";
+// const address = "mongodb://127.0.0.1:27017/node";
 mongoose.connect(address);
 
 const userController = UserController.getInstance(app);
@@ -29,8 +29,6 @@ const messageController = MessageController.getInstance(app);
 const likesController = LikeController.getInstance(app);
 
 const profileController = ProfileController.getInstance(app);
-
-// app.get("/hello", (req, res) => res.send("Hello World! ts"));
 
 const PORT: any = process.env.PORT || 5000;
 
