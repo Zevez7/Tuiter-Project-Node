@@ -64,5 +64,15 @@ export default class ProfileController implements ProfileControllerI {
     ProfileController.profileDao
       .findProfileByUserId(req.params.uid)
       .then((profile) => res.json(profile));
-}
 
+  /**
+   * Update profile by user id
+   * @param req request object
+   * @param res response object
+   * @return new user response
+   */
+  updateProfileByUserId = (req: Request, res: Response) =>
+    ProfileController.profileDao
+      .updateProfileByUserId(req.params.uid, req.body)
+      .then((profile) => res.send(profile));
+}
