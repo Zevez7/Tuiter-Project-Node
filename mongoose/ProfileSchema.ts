@@ -21,7 +21,7 @@ const ProfileSchema = new mongoose.Schema(
   {
     userId: { type: Schema.Types.ObjectId, ref: "UserModel" },
     profileImage: String,
-    personWebsite: String,
+    personalWebsite: String,
     linkedIn: String,
     github: String,
     instagram: String,

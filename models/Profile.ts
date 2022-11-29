@@ -22,7 +22,7 @@ import User from "./User";
 export default class Profile {
   private userId: User | null = null;
   private profileImage: String = "";
-  private personWebsite: String = "";
+  private personalWebsite: String = "";
   private linkedIn: String = "";
   private github: String = "";
   private instagram: String = "";
