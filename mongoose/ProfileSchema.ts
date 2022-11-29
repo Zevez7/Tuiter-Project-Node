@@ -29,6 +29,9 @@ const ProfileSchema = new mongoose.Schema(
     interest1: String,
     interest2: String,
     interest3: String,
+    biography: String,
+    firstName: String,
+    lastName: String,
     friends: [{ type: String }],
   },
   { collection: "profiles" }

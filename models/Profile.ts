@@ -30,5 +30,8 @@ export default class Profile {
   private interest1: String = "";
   private interest2: String = "";
   private interest3: String = "";
+  private biography: String = "";
+  private firstName: String = "";
+  private lastName: String = "";
   private friends: User[] = [];
 }
