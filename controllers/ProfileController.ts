@@ -27,6 +27,11 @@ export default class ProfileController implements ProfileControllerI {
         "/profiles/:uid",
         ProfileController.profileController.findProfileByUserId
       );
+
+      app.put(
+        "/profiles/:uid",
+        ProfileController.profileController.updateProfileByUserId
+      );
     }
     return ProfileController.profileController;
   };
@@ -69,10 +74,10 @@ export default class ProfileController implements ProfileControllerI {
    * Update profile by user id
    * @param req request object
    * @param res response object
-   * @return new user response
+   * @return update status
    */
   updateProfileByUserId = (req: Request, res: Response) =>
     ProfileController.profileDao
       .updateProfileByUserId(req.params.uid, req.body)
-      .then((profile) => res.send(profile));
+      .then((status) => res.json(status));
 }
