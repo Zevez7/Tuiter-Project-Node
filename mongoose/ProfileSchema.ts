@@ -9,7 +9,7 @@ import mongoose, { Schema } from "mongoose";
  * @property {string} profileImage the http address of the profile image
  * @property {string} personWebsite the http address of the user personal website
  * @property {string} linkedIn the http address of the user linkedIn
- * @property {string} facebook the http address of the user facebook
+ * @property {string} github the http address of the user github
  * @property {string} instagram the http address of the user instagram
  * @property {string} company name of the company the user work at
  * @property {string} interests an array of topic the user is interests in
@@ -21,7 +21,7 @@ const ProfileSchema = new mongoose.Schema(
     profileImage: { String },
     personWebsite: { String },
     linkedIn: { String },
-    facebook: { String },
+    github: { String },
     instagram: { String },
     company: { String },
     interests: [{ type: String }],
