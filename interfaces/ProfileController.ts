@@ -19,9 +19,16 @@ export default interface ProfileController {
   findAllProfile(req: Request, res: Response): void;
 
   /**
-   * Find all by user id`
+   * Find all by user id
    * @param req request object
    * @param res response object
    */
   findProfileByUserId(req: Request, res: Response): void;
+
+  /**
+   * Update profile by user id
+   * @param req request object
+   * @param res response object
+   */
+  updateProfileByUserId(req: Request, res: Response): void;
 }
