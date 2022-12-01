@@ -10,10 +10,10 @@ import MessageController from "./controllers/MessageController";
 import LikeController from "./controllers/LikeController";
 import ProfileController from "./controllers/ProfileController";
 
-// const cors = require("cors");
+const cors = require("cors");
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
 // const address = `mongodb+srv://datnguyen:datnguyentuiter@cluster0.6eip3ug.mongodb.net/?retryWrites=true&w=majority`;
