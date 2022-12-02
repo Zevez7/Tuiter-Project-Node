@@ -12,8 +12,27 @@ import ProfileController from "./controllers/ProfileController";
 
 const cors = require("cors");
 
+const session = require("express-session");
+
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+    optionsSuccessStatus: 200,
+  })
+);
+
+let sess = {
+  // secret: process.env.SECRET,
+  secret: "REDCAT",
+  cookie: {
+    secure: false,
+  },
+};
+
+app.use(session(sess));
+
 app.use(express.json());
 
 const address = `mongodb+srv://datnguyen:datnguyentuiter@cluster0.6eip3ug.mongodb.net/project?retryWrites=true&w=majority`;
