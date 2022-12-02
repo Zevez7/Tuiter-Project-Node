@@ -9,7 +9,8 @@ import BookmarkController from "./controllers/BookmarkController";
 import MessageController from "./controllers/MessageController";
 import LikeController from "./controllers/LikeController";
 import ProfileController from "./controllers/ProfileController";
-import AuthController from "./controllers/auth-controller";
+import AuthenticationController from "./controllers/auth-controller";
+
 const cors = require("cors");
 
 const session = require("express-session");
@@ -48,7 +49,7 @@ const messageController = MessageController.getInstance(app);
 const likesController = LikeController.getInstance(app);
 
 const profileController = ProfileController.getInstance(app);
-const authController = AuthController.getInstance(app);
+const authorController = AuthenticationController(app);
 
 const PORT: any = process.env.PORT || 5000;
 
