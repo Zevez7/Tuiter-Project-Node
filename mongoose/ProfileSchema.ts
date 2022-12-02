@@ -15,6 +15,7 @@ import mongoose, { Schema } from "mongoose";
  * @property {string} interest1 name user interest1
  * @property {string} interest2 name user interest2
  * @property {string} interest3 name user interest3
+ * @property {string} biography A short summary of the user's account
  * @property {string} friends the userId of the user's friends
  */
 const ProfileSchema = new mongoose.Schema(

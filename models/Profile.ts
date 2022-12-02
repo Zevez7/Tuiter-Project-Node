@@ -16,6 +16,7 @@ import User from "./User";
  * @property {string} interest1 name of the user interest1
  * @property {string} interest2 name of the user interest2
  * @property {string} interest3 name of the user interest3
+ * @property {string} biography A short summmary of the user's history.
  * @property {string} friends the userId of the user's friends
  */
 
