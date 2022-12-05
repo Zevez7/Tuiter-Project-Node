@@ -26,10 +26,12 @@ export default class TuitDao implements TuitDaoI {
   private constructor() {}
 
   async findAllTuits(): Promise<Tuit[]> {
-    return await TuitModel.find().populate({
-      path: "postedBy",
-      select: "username",
-    });
+    return await TuitModel.find()
+      .sort([["postedOn", -1]])
+      .populate({
+        path: "postedBy",
+        select: "username",
+      });
   }
   async findTuitById(tuidId: string): Promise<any> {
     return await TuitModel.findById(tuidId);
