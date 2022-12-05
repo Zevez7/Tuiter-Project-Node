@@ -18,8 +18,10 @@ app.use(express.json());
 
 // const address = `mongodb+srv://datnguyen:datnguyentuiter@cluster0.6eip3ug.mongodb.net/?retryWrites=true&w=majority`;
 
-const address = "mongodb://127.0.0.1:27017/node";
-mongoose.connect(address);
+//const address = "mongodb://127.0.0.1:27017/node";
+//mongoose.connect(address);
+
+mongoose.connect('mongodb+srv://ujjval:ujjval@cluster0.zwdxz.mongodb.net/whiteboard?retryWrites=true&w=majority&ssl=true');
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
