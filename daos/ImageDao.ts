@@ -16,7 +16,7 @@ export default class ImageDao implements ImageDaoI {
     }
     private constructor() {}
 
-     async findImageById(imageId: string): Promise<Image> {
+     async findImageById(imageId: string): Promise<any> {
            return await ImageModel
            .find({_id:imageId})
            .populate("uploadedBy")
@@ -24,20 +24,21 @@ export default class ImageDao implements ImageDaoI {
        }
 
 
-     async uploadImage(image: Image): Promise<Image> {
-            return await ImageModel.save(image);
+     async uploadImage(image: Image): Promise<any> {
+            return await ImageModel.create(image);
         }
 
-     async deleteImageById(imageId: string): Promise<Image> {
-            return await ImageModel.deleteOne({_id: imageId});
+     async deleteImageById(imageId: string): Promise<any> {
+            return await ImageModel.deleteMany({_id: imageId});
         }
 
-     async updateImage(imageId: string,image: Image): Promise<Image> {
+     async updateImage(imageId: string,image: Image): Promise<any> {
                  return await  ImageModel.findOneAndUpdate({ _id: imageId },image);
              }
+             
      async findImagesPresentInATuit(tid: string): Promise<any> { //modify to get array of tuit
        //  return await LikeModel.find({likedBy:uid})
-              return  await LikeModel
+              return  await ImageModel
                  .find({presentInWhichTuit: tid})
                  .populate("likedTuit")
                  .exec();
