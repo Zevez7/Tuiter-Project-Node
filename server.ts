@@ -9,11 +9,31 @@ import BookmarkController from "./controllers/BookmarkController";
 import MessageController from "./controllers/MessageController";
 import LikeController from "./controllers/LikeController";
 import ProfileController from "./controllers/ProfileController";
+import AuthenticationController from "./controllers/auth-controller";
 
 const cors = require("cors");
 
+const session = require("express-session");
+
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+    optionsSuccessStatus: 200,
+  })
+);
+
+let sess = {
+  // secret: process.env.SECRET,
+  secret: "REDCAT",
+  cookie: {
+    secure: false,
+  },
+};
+
+app.use(session(sess));
+
 app.use(express.json());
 
 const address = `mongodb+srv://datnguyen:datnguyentuiter@cluster0.6eip3ug.mongodb.net/project?retryWrites=true&w=majority`;
@@ -29,6 +49,7 @@ const messageController = MessageController.getInstance(app);
 const likesController = LikeController.getInstance(app);
 
 const profileController = ProfileController.getInstance(app);
+const authorController = AuthenticationController(app);
 
 const PORT: any = process.env.PORT || 5000;
 
