@@ -20,4 +20,10 @@ export default interface ProfileDao {
    * @param uid user id for which we need to find the data
    */
   findProfileByUserId(uid: string): Promise<any>;
+
+  /**
+   * Update Profile by user id
+   * @param uid user id
+   */
+  updateProfileByUserId(uid: string, profile: Profile): Promise<any>;
 }

@@ -10,21 +10,29 @@ import User from "./User";
  * @property {string} profileImage the http address of the profile image
  * @property {string} personWebsite the http address of the user personal website
  * @property {string} linkedIn the http address of the user linkedIn
- * @property {string} facebook the http address of the user facebook
+ * @property {string} github the http address of the user github
  * @property {string} instagram the http address of the user instagram
  * @property {string} company name of the company the user work at
- * @property {string} interests an array of topic the user is interests in
+ * @property {string} interest1 name of the user interest1
+ * @property {string} interest2 name of the user interest2
+ * @property {string} interest3 name of the user interest3
+ * @property {string} biography A short summmary of the user's history.
  * @property {string} friends the userId of the user's friends
  */
 
 export default class Profile {
   private userId: User | null = null;
   private profileImage: String = "";
-  private personWebsite: String = "";
+  private personalWebsite: String = "";
   private linkedIn: String = "";
-  private facebook: String = "";
+  private github: String = "";
   private instagram: String = "";
   private company: String = "";
-  private interests: String[] = [];
+  private interest1: String = "";
+  private interest2: String = "";
+  private interest3: String = "";
+  private biography: String = "";
+  private firstName: String = "";
+  private lastName: String = "";
   private friends: User[] = [];
 }
