@@ -48,7 +48,7 @@ export default class ProfileDao implements ProfileDaoI {
    * @returns profile found
    */
   async findProfileByUserId(uid: string): Promise<any> {
-    return await ProfileModel.find({ userId: uid });
+    return await ProfileModel.findOne({ userId: uid });
   }
   /**
    * Update profile by user id
