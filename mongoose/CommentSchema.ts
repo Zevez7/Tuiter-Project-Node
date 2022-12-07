@@ -13,6 +13,7 @@ import Comment from "../models/Comment";
 const CommentSchema = new mongoose.Schema<Comment>({
     postedOn: {type: Date, default: Date.now}, 
     commentedBy: {type: Schema.Types.ObjectId, ref: "UserModel"},
-    commentedTuit: {type: Schema.Types.ObjectId, ref: "TuitModel"}
+    commentedTuit: {type: Schema.Types.ObjectId, ref: "TuitModel"},
+    comment: {type: String, required: true},
 }, {collection: "comments"});
 export default CommentSchema;

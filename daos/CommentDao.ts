@@ -25,11 +25,9 @@ export default class CommentDao implements CommentDaoI {
   };
   private constructor() {}
 
-  async commentATuit(tid: string, uid: string): Promise<any> {
-    if (!(await CommentModel.exists({ commentedTuit: tid, commentedBy: uid }))) {
-      return await CommentModel.create({ commentedTuit: tid, commentedBy: uid });
-    }
-    return await CommentModel.findOne({ commentedTuit: tid, commentedBy: uid });
+  async commentATuit(comment : Comment): Promise<any> {
+      
+      return await CommentModel.create(comment);
   }
 
   async unCommentATuit(tid: string, uid: string): Promise<any> {

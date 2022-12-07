@@ -9,5 +9,6 @@ import Tuit from "./Tuit";
 export default class Comment {
     private commentedBy: User | null = null;
    private commentedTuit: Tuit | null = null;
+   private comment: string | null = null;
    private postedOn: Date = new Date(); 
 } 
