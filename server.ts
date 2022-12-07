@@ -48,7 +48,7 @@ const likesController = LikeController.getInstance(app);
 const profileController = ProfileController.getInstance(app);
 const authorController = AuthenticationController(app);
 
-const PORT: any = process.env.PORT || 5000;
+const PORT: any = process.env.PORT || 5002;
 
 // app.listen(PORT, "0.0.0.0", function () {
 //   console.log("Server started.......");
