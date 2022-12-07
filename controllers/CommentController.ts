@@ -33,7 +33,7 @@ export default class CommentController implements CommentControllerI {
 
         if(CommentController.commentController === null) {
             CommentController.commentController = new CommentController();
-            app.post("/users/:uid/comments/:tid", CommentController.commentController.commentATuit);
+            app.post("/comments", CommentController.commentController.commentATuit);
             app.delete("/users/:uid/comments/:tid", CommentController.commentController.unCommentATuit);   
             app.get("/users/:uid/comments", CommentController.commentController.findTuitscommentedByAUser); 
             app.get("/tuits/:tid/comments", CommentController.commentController.findUsersThatcommentedATuid);
@@ -44,7 +44,7 @@ export default class CommentController implements CommentControllerI {
     private constructor() {}
 
 
-    commentATuit = (req: Request, res: Response) => CommentController.commentDao.commentATuit(req.params.tid,req.params.uid)
+    commentATuit = (req: Request, res: Response) => CommentController.commentDao.commentATuit(req.body)
            .then(comment => res.json(comment)); 
 
            unCommentATuit = (req: Request, res: Response) => CommentController.commentDao.unCommentATuit(req.params.tid,req.params.uid)

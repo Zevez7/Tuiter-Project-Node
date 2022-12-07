@@ -1,6 +1,6 @@
 import Tuit from "../models/Tuit";
-import Like from "../models/Like";
-import User from "../models/Like";
+import Comment from "../models/Comment";
+import User from "../models/User";
 
 /**
  * @file This file is an interface for using comments collections
@@ -11,7 +11,7 @@ export default interface CommentDao {
     * @param tid tuit id which is commented
     * @param uid user id which is commented the tuit 
     */
-   commentATuit(tid: string, uid: string): Promise<any>;
+   commentATuit(comment: Comment): Promise<any>;
    /**
     * Tuit that is uncommented
     * @param tid tuit id which is uncommented
