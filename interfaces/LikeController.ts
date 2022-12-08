@@ -26,7 +26,7 @@ export default interface LikeController {
      * @param req request object
      * @param res response object
      */
-    findUsersThatLikedATuid(req: Request, res: Response): void;
+    findUsersThatLikedATuit(req: Request, res: Response): void;
 }
 
 

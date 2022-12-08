@@ -5,6 +5,8 @@
 import Like from "../models/Like";
 import LikeModel from "../mongoose/LikeModel";
 import LikeDaoI from "../interfaces/LikeDao";
+import Bookmark from "../models/Bookmark";
+import BookmarkModel from "../mongoose/BookmarkModel";
 
 /**
  * @class LikeDao Implements Data Access Object managing data storage
@@ -25,11 +27,11 @@ export default class LikeDao implements LikeDaoI {
   };
   private constructor() {}
 
-  async likeATuit(tid: string, uid: string): Promise<any> {
+  async likeATuit(tid: string, uid: string): Promise<Like> {
     if (!(await LikeModel.exists({ likedTuit: tid, likedBy: uid }))) {
       return await LikeModel.create({ likedTuit: tid, likedBy: uid });
     }
-    return await LikeModel.findOne({ likedTuit: tid, likedBy: uid });
+    return await LikeModel.create({ likedTuit: tid, likedBy: uid });
   }
 
   async dislikeATuit(tid: string, uid: string): Promise<any> {
@@ -42,7 +44,7 @@ export default class LikeDao implements LikeDaoI {
     return await LikeModel.find({ likedBy: uid }).populate("likedTuit").exec();
   }
 
-  async findUsersThatLikedATuid(tid: string): Promise<any> {
+  async findUsersThatLikedATuit(tid: string): Promise<any> {
     //modify to get array of tuit
     return await LikeModel.find({ likedTuit: tid }).populate("likedBy").exec();
   }
