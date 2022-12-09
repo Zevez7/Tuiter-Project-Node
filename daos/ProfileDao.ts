@@ -22,7 +22,7 @@ export default class ProfileDao implements ProfileDaoI {
   private constructor() {}
 
   /**
-   * create a new profile controller
+   * create a new profile
    * @param req Request for the API endpoints
    * @param res Response from the node server
    * @returns newly created profile
@@ -32,7 +32,7 @@ export default class ProfileDao implements ProfileDaoI {
   }
 
   /**
-   * find all profile controller
+   * find all profile
    * @param req Request for the API endpoints
    * @param res Response from the node server
    * @returns all profile
@@ -42,7 +42,7 @@ export default class ProfileDao implements ProfileDaoI {
   }
 
   /**
-   * find one profile by user id controller
+   * find one profile by user id
    * @param req Request for the API endpoints
    * @param res Response from the node server
    * @returns profile found
@@ -52,8 +52,8 @@ export default class ProfileDao implements ProfileDaoI {
   }
   /**
    * Update profile by user id
-   * @param req request object
-   * @param res response object
+   * @param req Request for the API endpoints
+   * @param res Response from the node server
    * @return update status
    */
   async updateProfileByUserId(uid: string, profile: Profile): Promise<any> {
@@ -62,8 +62,8 @@ export default class ProfileDao implements ProfileDaoI {
 
   /**
    * Delete profile by user id
-   * @param req request object
-   * @param res response object
+   * @param req Request for the API endpoints
+   * @param res Response from the node server
    * @return delete status
    */
   async deleteProfileByUserId(uid: string): Promise<any> {
