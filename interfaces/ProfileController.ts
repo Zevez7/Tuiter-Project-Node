@@ -31,4 +31,11 @@ export default interface ProfileController {
    * @param res response object
    */
   updateProfileByUserId(req: Request, res: Response): void;
+
+  /**
+   * Delete profile by user id
+   * @param req request object
+   * @param res response object
+   */
+  deleteProfileByUserId(req: Request, res: Response): void;
 }

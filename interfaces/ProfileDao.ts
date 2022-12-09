@@ -24,6 +24,13 @@ export default interface ProfileDao {
   /**
    * Update Profile by user id
    * @param uid user id
+   * @param profile profile to be updated
    */
   updateProfileByUserId(uid: string, profile: Profile): Promise<any>;
+
+  /**
+   * Delete Profile by user id
+   * @param uid user id
+   */
+  deleteProfileByUserId(uid: string): Promise<any>;
 }
