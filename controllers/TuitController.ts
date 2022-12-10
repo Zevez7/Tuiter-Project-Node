@@ -28,7 +28,7 @@ export default class TuitController implements TuitControllerI {
       app.put("/tuits/:tid", TuitController.tuitController.updateTuit);
       app.delete("/tuits/:tid", TuitController.tuitController.deleteTuit);
       app.delete(
-        "/tuits/:tid",
+        "/tuits/user/:uid",
         TuitController.tuitController.deleteTuitByUserId
       );
     }
@@ -86,7 +86,7 @@ export default class TuitController implements TuitControllerI {
    */
   deleteTuitByUserId = (req: Request, res: Response) =>
     TuitController.tuitDao
-      .deleteTuit(req.params.uid)
+      .deleteTuitByUserId(req.params.uid)
       .then((status) => res.json(status));
 
   /**
