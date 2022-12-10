@@ -36,7 +36,9 @@ app.use(session(sess));
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://ujjval:ujjval@cluster0.zwdxz.mongodb.net/whiteboard?retryWrites=true&w=majority&ssl=true');
+mongoose.connect(
+  "mongodb+srv://ujjval:ujjval@cluster0.zwdxz.mongodb.net/whiteboard?retryWrites=true&w=majority&ssl=true"
+);
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
@@ -48,7 +50,7 @@ const likesController = LikeController.getInstance(app);
 const profileController = ProfileController.getInstance(app);
 const authorController = AuthenticationController(app);
 
-const PORT: any = process.env.PORT || 5002;
+const PORT: any = process.env.PORT || 5000;
 
 // app.listen(PORT, "0.0.0.0", function () {
 //   console.log("Server started.......");
