@@ -20,10 +20,16 @@ export default interface TuitDao {
   findTuitById(tid: string): Promise<Tuit>;
   /**
    * Create a tuit
+   * @param tuit represents the tuit to be created
+   */
+  createTuit(tuit: Tuit): Promise<any>;
+
+  /**
+   * Create a tuit by userId
    * @param uid represents user for which tuit is created
    * @param tuit represents the tuit to be created
    */
-  createTuit(uid: string, tuit: Tuit): Promise<any>;
+  createTuitByUserId(uid: string, tuit: Tuit): Promise<any>;
   /**
    * Tuit to be updated
    * @param tid tid for which tuit is to be update

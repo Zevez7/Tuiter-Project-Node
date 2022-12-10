@@ -30,6 +30,12 @@ export default interface TuitController {
    */
   createTuit(req: Request, res: Response): void;
   /**
+   * Create tuit by user id
+   * @param req request object
+   * @param res response object
+   */
+  createTuitByUserId(req: Request, res: Response): void;
+  /**
    * Update tuit
    * @param req request object
    * @param res response object
