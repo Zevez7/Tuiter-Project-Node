@@ -23,9 +23,8 @@ export default class ProfileDao implements ProfileDaoI {
 
   /**
    * create a new profile
-   * @param req Request for the API endpoints
-   * @param res Response from the node server
    * @returns newly created profile
+   * @param profile
    */
   async createProfile(profile: Profile): Promise<any> {
     return ProfileModel.create(profile);
@@ -33,8 +32,6 @@ export default class ProfileDao implements ProfileDaoI {
 
   /**
    * find all profile
-   * @param req Request for the API endpoints
-   * @param res Response from the node server
    * @returns all profile
    */
   async findAllProfile(): Promise<Profile[]> {
@@ -43,18 +40,17 @@ export default class ProfileDao implements ProfileDaoI {
 
   /**
    * find one profile by user id
-   * @param req Request for the API endpoints
-   * @param res Response from the node server
    * @returns profile found
+   * @param uid
    */
   async findProfileByUserId(uid: string): Promise<any> {
     return await ProfileModel.findOne({ userId: uid });
   }
   /**
    * Update profile by user id
-   * @param req Request for the API endpoints
-   * @param res Response from the node server
    * @return update status
+   * @param uid
+   * @param profile
    */
   async updateProfileByUserId(uid: string, profile: Profile): Promise<any> {
     return await ProfileModel.findOneAndUpdate({ userId: uid }, profile);
@@ -62,9 +58,8 @@ export default class ProfileDao implements ProfileDaoI {
 
   /**
    * Delete profile by user id
-   * @param req Request for the API endpoints
-   * @param res Response from the node server
    * @return delete status
+   * @param uid
    */
   async deleteProfileByUserId(uid: string): Promise<any> {
     return await ProfileModel.deleteOne({ userId: uid });
