@@ -32,6 +32,11 @@ export default class ProfileController implements ProfileControllerI {
         "/profiles/:uid",
         ProfileController.profileController.updateProfileByUserId
       );
+
+      app.delete(
+        "/profiles/:uid",
+        ProfileController.profileController.deleteProfileByUserId
+      );
     }
     return ProfileController.profileController;
   };
@@ -79,5 +84,16 @@ export default class ProfileController implements ProfileControllerI {
   updateProfileByUserId = (req: Request, res: Response) =>
     ProfileController.profileDao
       .updateProfileByUserId(req.params.uid, req.body)
+      .then((status) => res.json(status));
+
+  /**
+   * Delete profile by user id
+   * @param req request object
+   * @param res response object
+   * @return delete status
+   */
+  deleteProfileByUserId = (req: Request, res: Response) =>
+    ProfileController.profileDao
+      .deleteProfileByUserId(req.params.uid)
       .then((status) => res.json(status));
 }

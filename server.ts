@@ -36,7 +36,9 @@ app.use(session(sess));
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://ujjval:ujjval@cluster0.zwdxz.mongodb.net/whiteboard?retryWrites=true&w=majority&ssl=true');
+mongoose.connect(
+  "mongodb+srv://ujjval:ujjval@cluster0.zwdxz.mongodb.net/whiteboard?retryWrites=true&w=majority&ssl=true"
+);
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
