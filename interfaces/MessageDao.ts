@@ -11,7 +11,7 @@ export default interface MessageDao {
    createMessage(message: Message): Promise<Message>; 
    /**
     * deletes message
-    * @param message message object to be saved
+    * @param messageId
     */
    deleteAMessage(messageId: string): Promise<any>;
    /**
@@ -20,9 +20,9 @@ export default interface MessageDao {
     */
    getSentMessages(senderId: string): Promise<Message[]>;
     /**
-    * Gets received messages by a user
-    * @param senderId id of the recevicer
-    */
+     * Gets received messages by a user
+     * @param receiveId
+     */
    getReceivedMessage(receiveId: string): Promise<Message[]>;
 
   /**

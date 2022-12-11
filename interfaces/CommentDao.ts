@@ -8,8 +8,7 @@ import User from "../models/User";
 export default interface CommentDao {
    /**
     * Like a comment
-    * @param tid tuit id which is commented
-    * @param uid user id which is commented the tuit 
+    * @param comment
     */
    commentATuit(comment: Comment): Promise<any>;
    /**

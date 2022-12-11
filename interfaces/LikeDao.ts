@@ -1,5 +1,4 @@
 import Tuit from "../models/Tuit";
-import Like from "../models/Like";
 import User from "../models/User";
 
 /**
