@@ -27,7 +27,7 @@ export default class RetuitController implements RetuitControllerI {
      * API
      * @returns LikeController
      */
-    public static getInstance = (app: Express): RetuitController => {
+    public static getInstance = (app: Express): RetuitController => { 
 
         if(RetuitController.retuitController === null) {
             RetuitController.retuitController = new RetuitController();

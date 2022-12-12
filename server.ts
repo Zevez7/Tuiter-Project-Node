@@ -10,6 +10,7 @@ import MessageController from "./controllers/MessageController";
 import LikeController from "./controllers/LikeController";
 import ProfileController from "./controllers/ProfileController";
 import AuthenticationController from "./controllers/auth-controller";
+import RetuitController from "./controllers/RetuitController";
 
 const cors = require("cors");
 
@@ -47,6 +48,7 @@ const likesController = LikeController.getInstance(app);
 
 const profileController = ProfileController.getInstance(app);
 const authorController = AuthenticationController(app);
+const retuitController = RetuitController.getInstance(app);
 
 const PORT: any = process.env.PORT || 5002;
 
