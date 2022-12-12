@@ -40,6 +40,10 @@ export default class BookmarkController implements BookmarkControllerI {
         BookmarkController.bookmarkController.unBookmarkATuit
       );
       app.get(
+        "/users/:uid/bookmarks/:tid",
+        BookmarkController.bookmarkController.findBookmark
+      );
+      app.get(
         "/users/:uid/bookmarks",
         BookmarkController.bookmarkController.findTuitsBookmarkedByAUser
       );
@@ -64,7 +68,8 @@ export default class BookmarkController implements BookmarkControllerI {
   bookmarkATuit = (req: Request, res: Response) =>
     BookmarkController.bookmarkDao
       .bookmarkATuit(req.params.tid, req.params.uid)
-      .then((bookmark) => res.json(bookmark));
+      .then((bookmark) => res.json(bookmark))
+      .catch((err)=>console.log('bookmark error:'+JSON.stringify(err)));
 
   unBookmarkATuit = (req: Request, res: Response) =>
     BookmarkController.bookmarkDao
@@ -90,4 +95,9 @@ export default class BookmarkController implements BookmarkControllerI {
     BookmarkController.bookmarkDao
       .removeUsersWhoBookmarkedATuit(req.params.tid)
       .then((bookmarks) => res.json(bookmarks));
+
+      findBookmark = (req: Request, res: Response) =>
+      BookmarkController.bookmarkDao
+        .findBookmark(req.params.uid, req.params.tid)
+        .then((bookmark) => res.json(bookmark));
 }

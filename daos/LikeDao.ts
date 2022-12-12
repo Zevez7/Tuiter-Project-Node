@@ -2,7 +2,6 @@
  * @file Implements DAO managing data storage of likes. Uses mongoose TuitModel
  * to integrate with MongoDB
  */
-import Like from "../models/Like";
 import LikeModel from "../mongoose/LikeModel";
 import LikeDaoI from "../interfaces/LikeDao";
 

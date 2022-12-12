@@ -1,4 +1,4 @@
-import { Request, Response, Express } from "express";
+import { Express } from "express";
 import ProfileDao from "../daos/ProfileDao";
 
 import UserDao from "../daos/UserDao";

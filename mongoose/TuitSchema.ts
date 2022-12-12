@@ -1,8 +1,8 @@
 /**
  * @file Implements mongoose schema for tuits
  */
-import mongoose, { Schema } from "mongoose";
-import Tuit from "../models/Tuit";
+import mongoose from "mongoose";
+
 
 /**
  * @typedef TuitSchema represents tuits posted by user
