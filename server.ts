@@ -10,6 +10,7 @@ import MessageController from "./controllers/MessageController";
 import LikeController from "./controllers/LikeController";
 import ProfileController from "./controllers/ProfileController";
 import AuthenticationController from "./controllers/auth-controller";
+import CommentController from "./controllers/CommentController"
 
 const cors = require("cors");
 
@@ -49,8 +50,9 @@ const likesController = LikeController.getInstance(app);
 
 const profileController = ProfileController.getInstance(app);
 const authorController = AuthenticationController(app);
+const commentController = CommentController.getInstance(app);
 
-const PORT: any = process.env.PORT || 5000;
+const PORT: any = process.env.PORT || 5002;
 
 // app.listen(PORT, "0.0.0.0", function () {
 //   console.log("Server started.......");
