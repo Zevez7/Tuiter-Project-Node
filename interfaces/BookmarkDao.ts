@@ -1,6 +1,5 @@
 import Tuit from "../models/Tuit";
 import Bookmark from "../models/Bookmark";
-import User from "../models/Like";
 /**
  * @file This file is an interface for using Bookmark collections
  */
@@ -30,7 +29,7 @@ export default interface BookmarkDao {
 
   /**
    * Remove all tuits bookmarked by a user
-   * @param tid tuit id to be bookmarked
+   * @param uid
    */
   removeTuitsBookmarkedByAUser(uid: string): Promise<any[]>;
 

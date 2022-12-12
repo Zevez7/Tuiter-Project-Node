@@ -11,6 +11,7 @@ import LikeController from "./controllers/LikeController";
 import ProfileController from "./controllers/ProfileController";
 import AuthenticationController from "./controllers/auth-controller";
 import RetuitController from "./controllers/RetuitController";
+import CommentController from "./controllers/CommentController"
 
 const cors = require("cors");
 
@@ -37,7 +38,9 @@ app.use(session(sess));
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://ujjval:ujjval@cluster0.zwdxz.mongodb.net/whiteboard?retryWrites=true&w=majority&ssl=true');
+mongoose.connect(
+  "mongodb+srv://ujjval:ujjval@cluster0.zwdxz.mongodb.net/whiteboard?retryWrites=true&w=majority&ssl=true"
+);
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
@@ -49,6 +52,7 @@ const likesController = LikeController.getInstance(app);
 const profileController = ProfileController.getInstance(app);
 const authorController = AuthenticationController(app);
 const retuitController = RetuitController.getInstance(app);
+const commentController = CommentController.getInstance(app);
 
 const PORT: any = process.env.PORT || 5002;
 

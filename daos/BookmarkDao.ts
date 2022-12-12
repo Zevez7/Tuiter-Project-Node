@@ -27,6 +27,7 @@ export default class BookmarkDao implements BookmarkDaoI {
   private constructor() {}
 
   async bookmarkATuit(tid: string, uid: string): Promise<Bookmark> {
+    console.log('tid: '+tid+' uid: '+uid);
     return await BookmarkModel.create({
       bookmarkedTuit: tid,
       bookmarkedBy: uid,
@@ -47,6 +48,11 @@ export default class BookmarkDao implements BookmarkDaoI {
       .populate("bookmarkedTuit")
       .exec();
   }
+  async findBookmark(uid: string, tid: string): Promise<any> {
+
+    return await BookmarkModel.find({ bookmarkedBy: uid , bookmarkedTuit: tid}).catch((err)=>console.log('I got a error'));
+  }
+  
 
   async findUsersThatBookmarkedATuid(tid: string): Promise<any> {
     //modify to get array of tuit
