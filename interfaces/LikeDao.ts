@@ -1,6 +1,5 @@
 import Tuit from "../models/Tuit";
 import Like from "../models/Like";
-import User from "../models/Like";
 
 /**
  * @file This file is an interface for using likes collections
@@ -27,5 +26,5 @@ export default interface LikeDao {
     * Find users that liked a tuit
     * @param tid tuit that is liked
     */
-   findUsersThatLikedATuid(tid: string): Promise<User[]>;
+   findUsersThatLikedATuid(tid: string): Promise<Like[]>;
 }
