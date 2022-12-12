@@ -52,7 +52,7 @@ const profileController = ProfileController.getInstance(app);
 const authorController = AuthenticationController(app);
 const commentController = CommentController.getInstance(app);
 
-const PORT: any = process.env.PORT || 5002;
+const PORT: any = process.env.PORT || 5000;
 
 // app.listen(PORT, "0.0.0.0", function () {
 //   console.log("Server started.......");
