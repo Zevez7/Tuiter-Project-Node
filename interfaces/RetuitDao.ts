@@ -8,7 +8,7 @@ export default interface RetuitDao {
     * @param tid tuit id which is Retuited
     * @param uid user id which is Retuited the tuit
     */
-   RetuitATuit(tid: string, uid: string): Promise<any>;
+   retuitATuit(tid: string, uid: string): Promise<any>;
    /**
     * Find users that Retuited a tuit
     * @param tid tuit that is Retuited

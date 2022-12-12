@@ -8,7 +8,7 @@ export default interface RetuitController {
      * @param req request object
      * @param res response object
      */
-    RetuitATuit(req: Request, res: Response): void;
+    retuitATuit(req: Request, res: Response): void;
      /**
      * Get users who retuited a tuit
      * @param req request object

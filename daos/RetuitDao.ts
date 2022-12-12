@@ -25,7 +25,7 @@ export default class RetuitDao implements RetuitDaoI {
   };
   private constructor() {}
 
-  async RetuitATuit(tid: string, uid: string): Promise<any> {
+  async retuitATuit(tid: string, uid: string): Promise<any> {
     if (!(await RetuitModel.exists({ retuitTuit: tid, retuitedBy: uid }))) {
       return await RetuitModel.create({ retuitTuit: tid, retuitedBy: uid });
     }
